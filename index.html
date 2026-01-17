@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding of Fajar & Oca</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root { 
+            --primary: #c5a059; 
+            --accent: #eaddca;
+            --text: #4a4a4a;
+            --bg: #fdfbf8;
+        }
+
+        body, html { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; overflow-x: hidden; scroll-behavior: smooth; background: var(--bg); color: var(--text); }
+
+        /* COVER OVERLAY */
+        #cover-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; z-index: 9999; text-align: center; transition: 1.2s cubic-bezier(0.7, 0, 0.3, 1);
+        }
+
+        .guest-name { font-size: 2.2rem; font-weight: bold; color: var(--primary); font-family: 'Dancing Script'; margin: 15px 0 30px 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+        .btn-open { background: var(--primary); color: white; border: none; padding: 15px 40px; border-radius: 50px; cursor: pointer; font-weight: 600; letter-spacing: 1px; transition: 0.3s; box-shadow: 0 4px 15px rgba(197, 160, 89, 0.4); }
+        .btn-open:hover { transform: scale(1.05); background: #b08d4a; }
+
+        /* MAIN CONTENT */
+        #main-invitation { display: none; }
+        .section { padding: 100px 20px; text-align: center; position: relative; }
+        
+        /* CARD STYLE */
+        .card { 
+            background: white; max-width: 650px; margin: 0 auto; padding: 60px 30px; 
+            border-radius: 30px 0 30px 0; border: 1px solid var(--accent);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+        }
+
+        .mempelai-name { font-family: 'Dancing Script'; font-size: 3.8rem; color: var(--primary); margin: 5px 0; }
+        .parent-name { font-size: 0.9rem; font-style: italic; color: #777; margin-bottom: 20px; }
+
+        /* TIMELINE STORY */
+        .timeline { position: relative; max-width: 500px; margin: 50px auto; text-align: left; border-left: 2px solid var(--accent); padding-left: 30px; }
+        .timeline-item { position: relative; margin-bottom: 40px; }
+        .timeline-item::before { content: ''; position: absolute; left: -41px; top: 0; width: 20px; height: 20px; background: var(--primary); border-radius: 50%; border: 4px solid white; }
+        .timeline-date { font-weight: bold; color: var(--primary); font-size: 1.2rem; margin-bottom: 5px; }
+
+        /* DECORATION */
+        .ornament { width: 150px; opacity: 0.6; margin-bottom: 20px; }
+
+        /* MAPS */
+        .map-container { margin-top: 30px; border-radius: 20px; overflow: hidden; border: 5px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        .petal { position: fixed; top: -10px; z-index: 998; pointer-events: none; animation: fall linear forwards; font-size: 20px; }
+        @keyframes fall { to { transform: translateY(100vh) rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+    <audio id="myAudio" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="cover-overlay">
+        <div data-aos="zoom-in" data-aos-duration="1500">
+            <h2 style="font-weight: 300; letter-spacing: 6px;">THE WEDDING OF</h2>
+            <h1 style="font-family: 'Dancing Script'; font-size: 4.5rem; color: var(--primary); margin: 20px 0;">Fajar & Oca</h1>
+            <p style="font-size: 0.9rem; letter-spacing: 2px;">SABTU, 24 JANUARI 2026</p>
+            <div style="margin-top: 40px;">
+                <p>Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+                <div class="guest-name" id="guest-name">Yanti</div>
+                <button class="btn-open" onclick="startInvitation()">📩 BUKA UNDANGAN</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-invitation">
+        <section class="section">
+            <div class="card" data-aos="fade-up">
+                <img src="https://cdn-icons-png.flaticon.com/512/1043/1043514.png" class="ornament" alt="flower">
+                <p style="font-style: italic; font-size: 0.9rem; line-height: 2; margin-bottom: 20px;">
+                    "Dan di antara tanda-tanda kekuasaan-Nya diciptakan-Nya untukmu pasangan hidup dari jenismu sendiri supaya kamu dapat ketenangan hati dan dijadikannya kasih sayang di antara kamu. Sesungguhnya yang demikian menjadi tanda-tanda kebesaran-Nya bagi orang-orang yang berpikir"
+                    <br><strong>(QS. Ar-Rum: 21)</strong>
+                </p>
+                
+                <div style="margin: 40px 0;">
+                    <div class="mempelai-name">Fajar</div>
+                    <div class="parent-name">Putra Bapak Diding Junaedi & Ibu Ea Julaeha</div>
+                    <p style="font-family: 'Dancing Script'; font-size: 2rem; color: var(--primary);">&</p>
+                    <div class="mempelai-name">Oca</div>
+                    <div class="parent-name">Putri Bapak Dindin Muhidin & Ibu Anna Maryana</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #fdf8f3;">
+            <h2 style="font-family: 'Playfair Display'; font-size: 2.5rem; margin-bottom: 50px;">Our Love Story</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-date">Juli 2022</div>
+                    <p>"Pasangan tidak ada yang cocok, tapi berusaha membuat kecocokan dengan hati yang luas."</p>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-date">November 2025</div>
+                    <p>Satu janji terikat dalam ikatan tunangan. Langkah serius menuju ibadah terpanjang seumur hidup.</p>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-date">Januari 2026</div>
+                    <p>Membangun mahligai rumah tangga. Karena hubungan yang baik itu dibangun dari pernikahan yang penuh berkah.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="card" data-aos="zoom-in">
+                <h2 style="font-family: 'Playfair Display'; color: var(--primary);">Waktu & Lokasi</h2>
+                <hr style="width: 50px; border: 1px solid var(--primary); margin: 20px auto;">
+                <p><strong>SABTU, 24 JANUARI 2026</strong></p>
+                <p><strong>Akad Nikah:</strong> 08:00 WIB<br><strong>Resepsi:</strong> 11:00 WIB - Selesai</p>
+                <p style="margin-top: 20px;"><strong>Lokasi Acara:</strong><br>Pondok Pesantren AS-Syifa Selaawi<br>RT 003 RW 001, Kec. Selaawi, Garut</p>
+                
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.0!2d108.0!3d-7.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMDAnMDAuMCJTIDEwOMKwMDAnMDAuMCJF!5e0!3m2!1sid!2sid!4v1600000000000!5m2!1sid!2sid" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <br>
+                <a href="https://www.google.com/maps/search/Pondok+Pesantren+AS-Syifa+Selaawi" target="_blank" class="btn-open" style="text-decoration: none; display: inline-block;">📍 BUKA GOOGLE MAPS</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="card" data-aos="fade-up">
+                <h3 style="font-family: 'Playfair Display';">Konfirmasi Kehadiran</h3>
+                <p style="font-size: 0.9rem;">Mohon konfirmasi kehadiran Anda melalui form di bawah ini:</p>
+                <div style="margin-top: 30px;">
+                    <input type="text" id="nama" placeholder="Nama Lengkap" style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                    <select id="status" style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                        <option value="Hadir">Saya Akan Hadir</option>
+                        <option value="Tidak Hadir">Maaf, Tidak Bisa Hadir</option>
+                    </select>
+                    <textarea id="pesan" placeholder="Ucapan & Doa" style="width: 100%; padding: 12px; height: 100px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 20px;"></textarea>
+                    <button class="btn-open" onclick="kirimWA()" style="width: 100%;">KIRIM KONFIRMASI</button>
+                </div>
+            </div>
+        </section>
+
+        <footer style="padding: 80px 20px; background: #333; color: #fff; text-align: center;">
+            <p style="font-weight: 300; letter-spacing: 3px;">KAMI YANG BERBAHAGIA</p>
+            <h2 style="font-family: 'Dancing Script'; font-size: 2.5rem; color: var(--primary);">Fajar & Oca</h2>
+            <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.5;">© 2026 Fajar & Oca Wedding Invitation</p>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const to = urlParams.get('to');
+        if(to) document.getElementById('guest-name').innerText = to;
+
+        function startInvitation() {
+            document.getElementById('cover-overlay').style.opacity = '0';
+            document.getElementById('cover-overlay').style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                document.getElementById('cover-overlay').style.display = 'none';
+                document.getElementById('main-invitation').style.display = 'block';
+                document.getElementById('myAudio').play();
+                AOS.refresh();
+            }, 1000);
+        }
+
+        function kirimWA() {
+            const n = document.getElementById('nama').value;
+            const s = document.getElementById('status').value;
+            const p = document.getElementById('pesan').value;
+            const link = `https://wa.me/628123456789?text=Halo Fajar %26 Oca, saya ${n} mengonfirmasi ${s}. %0A %0APesan: ${p}`;
+            window.open(link);
+        }
+
+        setInterval(() => {
+            const p = document.createElement('div');
+            p.innerHTML = "🌸"; p.className = 'petal';
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            p.style.opacity = Math.random();
+            document.body.appendChild(p);
+            setTimeout(() => p.remove(), 6000);
+        }, 600);
+    </script>
+</body>
+</html>
